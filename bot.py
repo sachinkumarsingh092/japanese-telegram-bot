@@ -111,7 +111,7 @@ def help(update, context):
     ''' Help message '''
     context.bot.send_message(chat_id=update.effective_chat.id, text='''Use the following commands
 /start - start message
-/translate - translate the message into an audio file
+/translate <text> - Do translation. Note: Transliteration won't work.
 /help - to get this help meassage
 ''')
 
