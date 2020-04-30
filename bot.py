@@ -148,7 +148,9 @@ dispatcher.add_handler(CommandHandler('help', help))
 dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
 
-# start the bot using web_hooks
+# start the bot using web_hooks instead of polling as:
+# https://github.com/python-telegram-bot/python-telegram-bot/wiki/Webhooks#heroku
+
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=os.environ['token'])
