@@ -82,8 +82,8 @@ def convert(update, context):
 # /start option
 @send_typing_action
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Konichiwa.\
-         Query me some text for translation. Use /help whenever stuck")
+    context.bot.send_message(chat_id=update.effective_chat.id, text='''Konichiwa.
+Query me some text for translation. Use /help whenever stuck''')
 
 
 
