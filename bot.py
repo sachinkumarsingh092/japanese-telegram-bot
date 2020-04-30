@@ -150,7 +150,7 @@ dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
 
 # start the bot
-updater.start_polling()
+updater.start_polling(poll_interval=1.0, timeout=20)
 
 
 # Stop the bot until Ctrl+C is pressed or a signal is sent to the bot process
