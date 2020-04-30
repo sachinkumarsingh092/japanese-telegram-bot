@@ -43,7 +43,7 @@ logger = logging.getLogger()
 
 
 # Updater objects
-updater = Updater(token="1064748191:AAHFpBy9k392CnQ0TJ6SuhbHHD5HKNzeaFE", use_context=True)
+updater = Updater(token=os.environ['token'], use_context=True)
 dispatcher = updater.dispatcher
 
 
