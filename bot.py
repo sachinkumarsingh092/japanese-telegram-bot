@@ -10,9 +10,9 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Inlin
 from telegram import ChatAction,ParseMode, InlineQueryResultArticle, InputTextMessageContent
 
 
-
+# variables
 BOTNAME = "speakJapaneseBot"
-
+PORT = int(os.environ.get('PORT', '8443'))
 
 
 # used when sending message to many users simultaneously, like in groups
@@ -148,9 +148,11 @@ dispatcher.add_handler(CommandHandler('help', help))
 dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
 
-# start the bot
-updater.start_polling(poll_interval=2.0, timeout=30)
-
+# start the bot using web_hooks
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=os.environ['token'])
+updater.bot.set_webhook("https://powerful-lowlands-26874.herokuapp.com/" + os.environ['token'])
 
 # Stop the bot until Ctrl+C is pressed or a signal is sent to the bot process
 updater.idle()
