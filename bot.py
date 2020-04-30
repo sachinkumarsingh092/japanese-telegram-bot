@@ -154,4 +154,4 @@ updater.start_polling()
 
 
 # Stop the bot until Ctrl+C is pressed or a signal is sent to the bot process
-updater.idle()
+# updater.idle()
