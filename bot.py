@@ -92,15 +92,18 @@ Use /help whenever stuck.''')
 @send_typing_action
 def translate(update, context):
     ''' Translate the user's input and make a translated output audio '''
-    text = convert(update, context)
+    try:
+        text = convert(update, context)
 
-    # translate using gtts module
-    output = gTTS(text=text, lang='ja', slow=False) 
-    output.save("output/output.mp3")
+        # translate using gtts module
+        output = gTTS(text=text, lang='ja', slow=False) 
+        output.save("output/output.mp3")
 
-    # reply a text and an audio translated output
-    context.bot.send_message(chat_id=update.effective_chat.id, text=text)
-    context.bot.send_voice(chat_id=update.effective_chat.id, voice=open('output/output.mp3', 'rb'))
+        # reply a text and an audio translated output
+        context.bot.send_message(chat_id=update.effective_chat.id, text=text)
+        context.bot.send_voice(chat_id=update.effective_chat.id, voice=open('output/output.mp3', 'rb'))
+    except IOError:
+        logger.debug("Some API error occured")
 
 
 # /help option
