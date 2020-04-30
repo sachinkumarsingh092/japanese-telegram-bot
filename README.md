@@ -6,7 +6,7 @@ This is especially useful for people trying to learn japanese. Use **`/help`** o
 
 Also integrated webhook server is used instead of polling on the server for obvious benefits.
 
-Try this bot (here)[https://t.me/speakJapaneseBot].
+Try this bot [here](https://t.me/speakJapaneseBot).
 
 ## ToDo
 - [ ] Inline mode.
